@@ -1,42 +1,32 @@
 
 
 //PALINDROMA
+//Chiedere all’utente di inserire una parola
+//Creare una funzione per capire se la parola inserita è palindroma
 
+//chiedere una parola
 
 let userWord = prompt(`Inserisci una parola`);
+console.log(`parola originale`,userWord);
 
 
+//generare parola al contrario
+
+const reverseWord = reverseChars(userWord);
+console.log(`reverse`,reverseWord);
 
 
-const reverseWord = palin(userWord);
-console.log(reverseWord);
+if (userWord === reverseWord){
+    console.log(`palindroma`);
+}else{
+    console.log(`NON palindroma`);
+}
 
 
-function palin(word){
+function reverseChars(word){
     let reverse = '';
-
-
-for(let i = word.length - 1;i >= 0;i--){
-    console.log(word[i]);
-    reverse += word[i];
-}
-
-return reverse;
-}
-
-const regularWord = palin1(userWord);
-console.log(regularWord);
-
-
-
-function palin1(word){
-    let regular = '';
-
-
-for(let i = word.length + 1;i <= 0;i++){
-    console.log(word[i]);
-    regular += word[i];
-}
-
-return regular;
+    for (let i =  word.length -1; i >= 0;i--){
+        reverse += word[i];
+    }
+    return reverse;
 }

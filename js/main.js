@@ -1,58 +1,50 @@
 //PARI E DISPARI
 
+//L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).Sommiamo i due numeriStabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)Dichiariamo chi ha vinto.
+
 
 //L'utente sceglie un numero da 1 a 5
 
 
 
-const newNum = parseInt(prompt(`Inserisci un nuemro da 1 a 5`));
-    console.log(`newNumber`);
+let newNum = parseInt(prompt(`Inserisci un nuemro da 1 a 5`));
+    console.log(newNum);
+
+//numero computer
+
+    const pcNumber = getRandomNumber(1,5);
+    console.log(`num computer`, pcNumber);
+
+//calcola somma
+
+const somma = newNum + pcNumber;
+
+//check vincitore
+
+let sceltaUtente = '';
+
+if(sceltaUtente === check(somma)){
+    console.log(`vince il giocatore`)
+}else{
+    console.log(`vince il computer`);
+}
 
 
-//generare numero random da 1 a 5
 
-for(let  i = 0; i < 5; i++ ) {
+//genera random number
 
-    //invocazione
-    const randEnd = getRandomNumber(0, 5);
-    console.log(randEnd);
+function getRandomNumber(min , max){ 
+    return Math.floor(Math.random() * (max - min +1))+ min;
 
 }
 
-//definizione funzione
 
-function getRandomNumber(min,max ){
-    const rand = Math.floor(Math.random() * (max - min +1))+ min;
-    console.log(`rand`);
-    return rand;
-    
-}
-
-//somma
+//verifica se pari o dispari
 
 
- somma = '';
-
- function somma (newNum , randEnd ){
-     const total = newNum + randEnd;
-     console.log(total);
- }
-
-//definire se è pari o dispari
-
-
- const showMe = check(somma);
-    console.log(`E' uscito il numero ${showMe}`);
-
-
-    //definizione
-    function check(num){
+function check(num){
     if(num % 2 === 0){
         return 'pari';
     }
     return 'dispari';
 }
-
-//mostra il vincitore
-
-const winner  = document.getElementById(`Il vincitore è${somma}`);
