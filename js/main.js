@@ -5,46 +5,57 @@
 
 //L'utente sceglie un numero da 1 a 5
 
+let newNum = prompt('Inserisci pari o dispari').trim().toLowerCase();
+    
 
+    while( (newNum !== 'pari') && (newNum !== 'dispari') ){
 
-let newNum = parseInt(prompt(`Inserisci un nuemro da 1 a 5`));
+        newNum = parseInt(prompt('Parola NON valida').trim().toLowerCase());
+    }
     console.log(newNum);
 
-//numero computer
+    //numero player da 1 a 5
+    let numeroUtente = parseInt(prompt('Inserisci un numero da 1  a 5'));
+    console.log('Utente:' ,numeroUtente);
 
-    const pcNumber = getRandomNumber(1,5);
-    console.log(`num computer`, pcNumber);
+    
+    //numero computer da 1 a 5
+    const numComputer = getRandNum(1 , 5);
+    console.log('Computer:' ,numComputer);
 
-//calcola somma
+    //Calc somma
+    const somma = numeroUtente + numComputer;
+    console.log('Somma:' ,somma);
 
-const somma = newNum + pcNumber;
-
-//check vincitore
-
-let sceltaUtente = '';
-
-if(sceltaUtente === check(somma)){
-    console.log(`vince il giocatore`)
-}else{
-    console.log(`vince il computer`);
-}
-
-
-
-//genera random number
-
-function getRandomNumber(min , max){ 
-    return Math.floor(Math.random() * (max - min +1))+ min;
-
-}
-
-
-//verifica se pari o dispari
-
-
-function check(num){
-    if(num % 2 === 0){
-        return 'pari';
+    //check vincitore
+    if( numeroUtente === checkEvenOrOdd(somma)){
+        console.log('vince giocatore');
+    }else{
+        console.log('vince computer');
     }
-    return 'dispari';
-}
+    
+
+
+    //get random integer
+    function getRandNum(min , max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    
+    //check even or odd number
+    function checkEvenOrOdd(number){
+        
+        if( number % 2 === 0 ){
+            return 'pari';
+        }
+        return 'dispari';
+    }
+
+
+
+
+
+
+
+
+
+
